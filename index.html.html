@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapeando - Medicina Dentária em Angola</title>
+    <meta name="description" content="Estamos a mapear a odontologia em Angola. Faça parte desta iniciativa. Profissionais de saúde, estudantes, instituições - todos são bem-vindos!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-gold: #D4AF37;
+            --color-gold-dark: #996600;
+            --color-bg: #FAFAF8;
+            --color-text: #2C2C2A;
+            --color-text-light: #5F5E5A;
+            --color-border: #E0DCD3;
+            --color-accent: #E8F4F8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER */
+        header {
+            border-bottom: 1px solid var(--color-border);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            background: rgba(250, 250, 248, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--color-text);
+        }
+
+        .logo span {
+            color: var(--color-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text-light);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-gold);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--color-text);
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 16px;
+            color: var(--color-gold-dark);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--color-text-light);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-gold);
+            color: white;
+            padding: 14px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-gold);
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            background: var(--color-gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2);
+        }
+
+        /* STATS SECTION */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+            padding-top: 80px;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .stat-card {
+            text-align: center;
+            animation: slideUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stat-card:nth-child(2) { animation-delay: 0.2s; }
+        .stat-card:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--color-gold);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--color-text-light);
+            letter-spacing: 0.5px;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            margin-top: 120px;
+            padding: 60px 0;
+        }
+
+        .about h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .about-card {
+            background: white;
+            padding: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            border-color: var(--color-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .about-card h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--color-text);
+        }
+
+        .about-card p {
+            font-size: 14px;
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+
+        /* FORM SECTION */
+        .form-section {
+            margin-top: 100px;
+            padding: 60px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+        }
+
+        .form-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .form-section .subtitle {
+            text-align: center;
+            color: var(--color-text-light);
+            margin-bottom: 48px;
+            font-size: 16px;
+        }
+
+        /* FORMULÁRIO INTEGRADO */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 3px;
+            background: var(--color-border);
+            border-radius: 2px;
+            margin-bottom: 32px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--color-gold);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            display: none;
+        }
+
+        .form-group.active {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--color-text);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            background: white;
+            color: var(--color-text);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .category-btn {
+            padding: 16px;
+            border: 1px solid var(--color-border);
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.2s ease;
+            color: var(--color-text);
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .category-btn:hover {
+            border-color: var(--color-gold);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .category-btn.selected {
+            border-color: var(--color-gold);
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--color-gold-dark);
+            font-weight: 600;
+        }
+
+        .category-emoji {
+            font-size: 24px;
+        }
+
+        .info-box {
+            background: var(--color-accent);
+            padding: 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--color-text);
+            margin-bottom: 24px;
+            border-left: 4px solid var(--color-gold);
+        }
+
+        .required {
+            color: #E24B4A;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .btn-prev,
+        .btn-next,
+        .btn-submit {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid var(--color-border);
+            background: white;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--color-text);
+        }
+
+        .btn-prev:hover,
+        .btn-next:hover {
+            background: var(--color-bg);
+            border-color: var(--color-gold);
+        }
+
+        .btn-submit {
+            background: var(--color-gold);
+            color: white;
+            border-color: var(--color-gold);
+        }
+
+        .btn-submit:hover {
+            background: var(--color-gold-dark);
+            border-color: var(--color-gold-dark);
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .success-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+        }
+
+        .success-message h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .success-message p {
+            font-size: 14px;
+            color: var(--color-text-light);
+            margin-bottom: 8px;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 120px;
+            padding: 40px 0;
+            border-top: 1px solid var(--color-border);
+            text-align: center;
+            color: var(--color-text-light);
+            font-size: 14px;
+        }
+
+        .socials {
+            margin-bottom: 20px;
+        }
+
+        .socials a {
+            color: var(--color-gold);
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .socials a:hover {
+            color: var(--color-gold-dark);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .form-section {
+                padding: 40px 20px;
+            }
+
+            .stats {
+                gap: 30px;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-btn {
+                min-height: 60px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">MAPEANDO<span>.</span></div>
+            <ul class="nav-links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#formulario">Participar</a></li>
+                <li><a href="#sociais">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container">
+                <div class="tagline">Medicina dentária em Angola</div>
+                <h1>Estamos a mapear a<br>Odontologia em Angola</h1>
+                <p>Uma iniciativa que conecta profissionais, estudantes, instituições e projectos na área de saúde oral. Sua voz importa.</p>
+                
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Categorias mapeadas</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Histórias por contar</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Angola, muitas vozes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE -->
+        <section class="about" id="sobre">
+            <div class="container">
+                <h2>Por que Mapeando?</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3>🔍 Visibilidade</h3>
+                        <p>A odontologia em Angola precisa de mais visibilidade. Profissionais, projectos e instituições trabalham em silos. Queremos conectar.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>🌍 Comunidade</h3>
+                        <p>Não há regulador independente de dentistas em Angola. A comunidade é nossa força. Mapeando amplia essa rede.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>📚 Conhecimento</h3>
+                        <p>Histórias, experiências e práticas clínicas valem ouro. Queremos documentar e compartilhar o que se faz em Angola.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULÁRIO -->
+        <section class="form-section" id="formulario">
+            <div class="form-container">
+                <h2>Você faz parte?</h2>
+                <p class="subtitle">Demoramos menos de 2 minutos. Sua participação é fundamental.</p>
+
+                <div id="formContent">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+
+                    <div class="info-box">
+                        ✓ Seus dados serão tratados com confidencialidade e usados apenas para o mapeamento.
+                    </div>
+
+                    <!-- PASSO 1: Categoria -->
+                    <div class="form-group active" id="step1">
+                        <label>Qual é o seu perfil? <span class="required">*</span></label>
+                        <div class="category-grid">
+                            <button type="button" class="category-btn" onclick="selectCategory('profissional')">
+                                <span class="category-emoji">👥</span>
+                                Profissional de Saúde
+                            </button>
+                            <button type="button" class="category-btn" onclick="selectCategory('estudante')">
+                                <span class="category-emoji">🎓</span>
+                                Estudante / Académico
+                            </button>
+                            <button type="button" class="category-btn" onclick="selectCategory('instituicao-ensino')">
+                                <span class="category-emoji">🏫</span>
+                                Instituição de Ensino
+                            </button>
+                            <button type="button" class="category-btn" onclick="selectCategory('instituicao-saude')">
+                                <span class="category-emoji">🏥</span>
+                                Instituição de Saúde
+                            </button>
+                            <button type="button" class="category-btn" onclick="selectCategory('projeto')">
+                                <span class="category-emoji">🤝</span>
+                                Projecto / Associação
+                            </button>
+                            <button type="button" class="category-btn" onclick="selectCategory('ong')">
+                                <span class="category-emoji">🌍</span>
+                                ONG de Saúde Oral
+                            </button>
+                        </div>
+                        <input type="hidden" id="categoria" />
+                    </div>
+
+                    <!-- PASSO 2: Nome -->
+                    <div class="form-group" id="step2">
+                        <label>Nome completo <span class="required">*</span></label>
+                        <input type="text" id="nome" placeholder="Seu nome" required />
+                    </div>
+
+                    <!-- PASSO 3: Email -->
+                    <div class="form-group" id="step3">
+                        <label>Email <span class="required">*</span></label>
+                        <input type="email" id="email" placeholder="seu@email.com" required />
+                    </div>
+
+                    <!-- PASSO 4: Telefone -->
+                    <div class="form-group" id="step4">
+                        <label>Telefone / WhatsApp <span class="required">*</span></label>
+                        <input type="tel" id="telefone" placeholder="+244 9XX XXX XXX" required />
+                    </div>
+
+                    <!-- PASSO 5: Questões Específicas -->
+                    
+                    <!-- PROFISSIONAL -->
+                    <div class="form-group" id="profissional-especialidade">
+                        <label>Qual é sua especialidade? <span class="required">*</span></label>
+                        <select id="especialidade" required>
+                            <option value="">Selecione sua especialidade</option>
+                            <option value="odontologia-geral">Odontologia Geral</option>
+                            <option value="periodontia">Periodontia</option>
+                            <option value="endodontia">Endodontia</option>
+                            <option value="ortodoncia">Ortodontia</option>
+                            <option value="protese">Prótese Dentária</option>
+                            <option value="pediatria">Odontopediatria</option>
+                            <option value="cirurgia">Cirurgia Oral</option>
+                            <option value="implantologia">Implantologia</option>
+                            <option value="saude-publica">Saúde Pública / Preventiva</option>
+                            <option value="outra">Outra</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="profissional-experiencia">
+                        <label>Quantos anos de experiência você tem?</label>
+                        <select id="experiencia">
+                            <option value="">Selecione</option>
+                            <option value="0-2">Menos de 2 anos</option>
+                            <option value="2-5">2-5 anos</option>
+                            <option value="5-10">5-10 anos</option>
+                            <option value="10-plus">Mais de 10 anos</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="profissional-local">
+                        <label>Onde você trabalha? (Município)</label>
+                        <input type="text" id="local-trabalho" placeholder="ex: Luanda, Bengo, Huila..." />
+                    </div>
+
+                    <!-- ESTUDANTE -->
+                    <div class="form-group" id="estudante-universidade">
+                        <label>Qual é sua universidade? <span class="required">*</span></label>
+                        <input type="text" id="universidade" placeholder="Nome da universidade" />
+                    </div>
+
+                    <div class="form-group" id="estudante-ano">
+                        <label>Que ano está a estudar?</label>
+                        <select id="ano-estudo">
+                            <option value="">Selecione</option>
+                            <option value="1">1º Ano</option>
+                            <option value="2">2º Ano</option>
+                            <option value="3">3º Ano</option>
+                            <option value="4">4º Ano</option>
+                            <option value="5">5º Ano</option>
+                            <option value="6">6º Ano</option>
+                        </select>
+                    </div>
+
+                    <!-- INSTITUIÇÃO ENSINO -->
+                    <div class="form-group" id="instituicao-ensino-nome">
+                        <label>Nome da instituição <span class="required">*</span></label>
+                        <input type="text" id="inst-nome" placeholder="Nome da sua universidade" />
+                    </div>
+
+                    <div class="form-group" id="instituicao-ensino-contato">
+                        <label>Responsável pela coordenação / Diretor</label>
+                        <input type="text" id="inst-responsavel" placeholder="Nome do responsável" />
+                    </div>
+
+                    <!-- INSTITUIÇÃO SAÚDE -->
+                    <div class="form-group" id="instituicao-saude-nome">
+                        <label>Nome do estabelecimento de saúde <span class="required">*</span></label>
+                        <input type="text" id="est-nome" placeholder="ex: Hospital, Clínica..." />
+                    </div>
+
+                    <div class="form-group" id="instituicao-saude-tipo">
+                        <label>Tipo de instituição</label>
+                        <select id="est-tipo">
+                            <option value="">Selecione</option>
+                            <option value="hospital">Hospital</option>
+                            <option value="clinica">Clínica Privada</option>
+                            <option value="centro-saude">Centro de Saúde</option>
+                            <option value="laboratorio">Laboratório</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <!-- PROJECTO -->
+                    <div class="form-group" id="projeto-nome">
+                        <label>Nome do projecto / associação <span class="required">*</span></label>
+                        <input type="text" id="proj-nome" placeholder="Nome da iniciativa" />
+                    </div>
+
+                    <div class="form-group" id="projeto-descricao">
+                        <label>Descrição breve do que fazem</label>
+                        <textarea id="proj-descricao" placeholder="Conte-nos em poucas linhas..."></textarea>
+                    </div>
+
+                    <!-- ONG -->
+                    <div class="form-group" id="ong-nome">
+                        <label>Nome da ONG <span class="required">*</span></label>
+                        <input type="text" id="ong-nome-input" placeholder="Nome da organização" />
+                    </div>
+
+                    <div class="form-group" id="ong-foco">
+                        <label>Área de foco / Principais atividades</label>
+                        <textarea id="ong-foco-input" placeholder="O que sua ONG faz especificamente..."></textarea>
+                    </div>
+
+                    <!-- MENSAGEM FINAL -->
+                    <div class="form-group" id="step5">
+                        <label>Como gostaríamos de trabalhar com você? (Opcional)</label>
+                        <textarea id="mensagem" placeholder="Ideias, sugestões, perguntas..."></textarea>
+                    </div>
+
+                    <!-- BOTÕES -->
+                    <div class="button-group">
+                        <button type="button" class="btn-prev" onclick="previousStep()" id="btnPrev" style="display: none;">← Anterior</button>
+                        <button type="button" class="btn-next" onclick="nextStep()" id="btnNext">Próximo →</button>
+                        <button type="button" class="btn-submit" onclick="submitForm()" id="btnSubmit" style="display: none;">Enviar</button>
+                    </div>
+                </div>
+
+                <!-- SUCESSO -->
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">✓</div>
+                    <h2>Obrigado!</h2>
+                    <p>Sua contribuição foi registada com sucesso.</p>
+                    <p>Em breve entraremos em contacto para saber mais sobre como podemos trabalhar juntos.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="sociais">
+        <div class="container">
+            <div class="socials">
+                <a href="https://instagram.com/mapeando_angola" target="_blank">Instagram</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="mailto:info@mapeando.ao">Email</a>
+            </div>
+            <p>&copy; 2024 Mapeando. Medicina Dentária em Angola.</p>
+            <p style="font-size: 12px; margin-top: 8px;">Uma iniciativa para conectar a comunidade odontológica angolana.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 5;
+        let selectedCategory = '';
+
+        const categoryMap = {
+            'profissional': { label: 'Profissional de Saúde', fields: ['especialidade', 'experiencia', 'local-trabalho'] },
+            'estudante': { label: 'Estudante', fields: ['universidade', 'ano'] },
+            'instituicao-ensino': { label: 'Instituição de Ensino', fields: ['inst-nome', 'inst-responsavel'] },
+            'instituicao-saude': { label: 'Instituição de Saúde', fields: ['est-nome', 'est-tipo'] },
+            'projeto': { label: 'Projecto', fields: ['proj-nome', 'proj-descricao'] },
+            'ong': { label: 'ONG', fields: ['ong-nome', 'ong-foco'] }
+        };
+
+        function selectCategory(category) {
+            selectedCategory = category;
+            document.getElementById('categoria').value = categoryMap[category].label;
+            
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('selected'));
+            event.target.closest('.category-btn').classList.add('selected');
+            
+            nextStep();
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.form-group').forEach(g => g.classList.remove('active'));
+            document.getElementById(`step${step}`).classList.add('active');
+            
+            if (selectedCategory && step > 2) {
+                const fields = categoryMap[selectedCategory].fields;
+                fields.forEach(field => {
+                    const fieldElement = document.getElementById(`${selectedCategory}-${field}`);
+                    if (fieldElement) fieldElement.classList.add('active');
+                });
+            }
+            
+            document.getElementById('btnPrev').style.display = step === 1 ? 'none' : 'block';
+            document.getElementById('btnNext').style.display = step === totalSteps ? 'none' : 'block';
+            document.getElementById('btnSubmit').style.display = step === totalSteps ? 'block' : 'none';
+            
+            const progress = (step / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            
+            currentStep = step;
+            window.scrollTo({ top: document.querySelector('.form-section').offsetTop - 100, behavior: 'smooth' });
+        }
+
+        function nextStep() {
+            if (currentStep === 1 && !selectedCategory) {
+                alert('Por favor, selecione seu perfil');
+                return;
+            }
+            if (currentStep < totalSteps) showStep(currentStep + 1);
+        }
+
+        function previousStep() {
+            if (currentStep > 1) showStep(currentStep - 1);
+        }
+
+        function submitForm() {
+            const formData = {
+                categoria: document.getElementById('categoria').value,
+                nome: document.getElementById('nome').value,
+                email: document.getElementById('email').value,
+                telefone: document.getElementById('telefone').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            if (selectedCategory === 'profissional') {
+                formData.especialidade = document.getElementById('especialidade').value;
+                formData.experiencia = document.getElementById('experiencia').value;
+                formData.local_trabalho = document.getElementById('local-trabalho').value;
+            } else if (selectedCategory === 'estudante') {
+                formData.universidade = document.getElementById('universidade').value;
+                formData.ano_estudo = document.getElementById('ano-estudo').value;
+            } else if (selectedCategory === 'instituicao-ensino') {
+                formData.instituicao = document.getElementById('inst-nome').value;
+                formData.responsavel = document.getElementById('inst-responsavel').value;
+            } else if (selectedCategory === 'instituicao-saude') {
+                formData.instituicao = document.getElementById('est-nome').value;
+                formData.tipo = document.getElementById('est-tipo').value;
+            } else if (selectedCategory === 'projeto') {
+                formData.projeto = document.getElementById('proj-nome').value;
+                formData.descricao = document.getElementById('proj-descricao').value;
+            } else if (selectedCategory === 'ong') {
+                formData.ong = document.getElementById('ong-nome-input').value;
+                formData.foco = document.getElementById('ong-foco-input').value;
+            }
+            
+            formData.mensagem = document.getElementById('mensagem').value;
+            
+            // Salvar localmente (para testes)
+            localStorage.setItem('mapeando-form-' + Date.now(), JSON.stringify(formData));
+            
+            document.getElementById('formContent').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+            
+            console.log('Dados do formulário:', formData);
+        }
+
+        showStep(1);
+    </script>
+</body>
+</html>
